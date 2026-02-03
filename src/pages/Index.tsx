@@ -252,7 +252,7 @@ export default function Index() {
         <span>
           Vui lòng liên hệ{' '}
           <a
-            href="https://zalo.me/821035463396"
+            href="https://zalo.me/821087466323"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 underline font-semibold"
@@ -280,7 +280,7 @@ export default function Index() {
           <span>
             Vui lòng liên hệ{' '}
             <a
-              href="https://zalo.me/821035463396"
+              href="https://zalo.me/821087466323"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 underline font-semibold"
@@ -304,7 +304,7 @@ export default function Index() {
           <span>
             Vui lòng liên hệ{' '}
             <a
-              href="https://zalo.me/821035463396"
+              href="https://zalo.me/821087466323"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 underline font-semibold"
