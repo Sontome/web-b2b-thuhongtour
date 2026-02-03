@@ -13,7 +13,7 @@ import NotFound from "./pages/NotFound";
 import PendingTickets from "./pages/PendingTickets";
 import HeldTickets from "./pages/HeldTickets";
 import PriceMonitor from "./pages/PriceMonitor";
-
+import AuthCallback from "@/pages/AuthCallback";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -25,6 +25,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/auth" element={<Auth />} />
+            <Route path="/auth/callback" element={<AuthCallback />} />
             <Route path="/admin" element={
               <ProtectedRoute>
                 <AdminDashboard />
