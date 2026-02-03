@@ -43,12 +43,12 @@ export const PNRCheckModal = ({ isOpen, onClose }: PNRCheckModalProps) => {
           .select('banner')
           .eq('id', user.id)
           .single();
-  const banner = profile?.banner || " "
+  const banner = profile?.banner || " ";
   const handleCheck = async () => {
     if (!pnrCode.trim()) {
       toast.error('Vui lòng nhập mã PNR');
       return;
-    }
+    };
     
     setIsLoading(true);
     setFiles([]);
