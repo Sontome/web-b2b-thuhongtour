@@ -11,6 +11,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { toast } from 'sonner';
 import { Copy, Download, FileText } from 'lucide-react';
+import { useAuth } from '@/hooks/useAuth';
+import { supabase } from '@/integrations/supabase/client';
 
 
 interface PNRCheckModalProps {
@@ -28,19 +30,26 @@ export const PNRCheckModal = ({ isOpen, onClose }: PNRCheckModalProps) => {
   const [pnrCode, setPnrCode] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [files, setFiles] = useState<PNRFile[]>([]);
-
+  
   const handleClose = () => {
     setPnrCode('');
     setFiles([]);
     onClose();
   };
-
+  const { user } = useAuth();
+  const loadUserBanner = async () => {
+        const { data: profile, error } = await supabase
+          .from('profiles')
+          .select('banner')
+          .eq('id', user.id)
+          .single();
+  const banner = profile?.banner || " "
   const handleCheck = async () => {
     if (!pnrCode.trim()) {
       toast.error('Vui lòng nhập mã PNR');
       return;
     }
-  
+    
     setIsLoading(true);
     setFiles([]);
   
@@ -53,7 +62,7 @@ export const PNRCheckModal = ({ isOpen, onClose }: PNRCheckModalProps) => {
         },
         body: JSON.stringify({
           pnr: pnrCode.trim(),
-          banner: '',
+          banner: banner,
         }),
       });
       const listResult = await listResponse.json();
